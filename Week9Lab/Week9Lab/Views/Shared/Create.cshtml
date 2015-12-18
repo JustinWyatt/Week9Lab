@@ -4,8 +4,21 @@
     ViewBag.Title = "Create";
 }
 
+<style>
+    .form-group{
+        @*Move button to float right of text area*@
+    }
+
+    .form-horizontal{
+        @*Move text area to float left of button. *@
+        @* Size text area appropirately *@
+
+    }
+
+</style>
+
 @*@form posts to posts/create because this is where the view lives*@
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Posts")) 
 {
     @Html.AntiForgeryToken()
     
@@ -14,9 +27,9 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control", value = "Whats on your mind?"} })
                 @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
             </div>
         </div>

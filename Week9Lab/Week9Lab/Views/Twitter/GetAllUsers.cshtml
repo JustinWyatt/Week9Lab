@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Week9Lab.Models.AllUsersVM>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.ActionLink(item.Name, "StartPage", "Twitter", new { userid = item.Id }, null)
+        </li>
+    }
+</ul>
+

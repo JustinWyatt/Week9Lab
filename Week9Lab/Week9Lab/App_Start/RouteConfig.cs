@@ -16,7 +16,7 @@ namespace Week9Lab
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Twitter", action = "Start", id = UrlParameter.Optional }
             );
         }
     }

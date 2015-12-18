@@ -33,10 +33,8 @@ namespace Week9Lab.Models
         }
 
         public virtual DbSet<Post> Posts { get; set; }
-
         //users who are follwing me are my followers
         public virtual DbSet<Follower> Followers { get; set; }
-
         //users who I am following, I am their followee. I am a followee of multiple users
         public virtual DbSet<Followee> Followees { get; set; }
 
