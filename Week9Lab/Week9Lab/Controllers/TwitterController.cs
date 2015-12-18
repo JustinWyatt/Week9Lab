@@ -8,6 +8,7 @@ using Week9Lab.Models;
 
 namespace Week9Lab.Controllers
 {
+    [Authorize]
     public class TwitterController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
@@ -15,7 +16,18 @@ namespace Week9Lab.Controllers
         // GET: Twitter
         public ActionResult Start()
         {
-            return View(db.Posts.Where(x=>x.User.UserName == User.Identity.GetUserName()).ToList());
+            var listOfPosts = new List<Post>();
+            var followingPosts = db.Posts;
+            var myPosts = db.Posts.Where(x => x.User.UserName == User.Identity.GetUserName()).ToList();
+
+            listOfPosts.AddRange(followingPosts);
+
+            return View(listOfPosts);
+        }
+
+        public ActionResult Follow()
+        {
+            return View();
         }
 
 

@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace Week9Lab.Models
 {
@@ -17,9 +18,10 @@ namespace Week9Lab.Models
             return userIdentity;
         }
 
-        public virtual DbSet<ApplicationUser> Followers { get; set; }
-        public virtual DbSet<ApplicationUser> Following { get; set; }
-        public virtual DbSet<Post> Posts { get; set; }
+        public virtual ICollection<Follower> Followers { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
+        //people who I am following
+        public virtual ICollection<Followee> Followees { get; set; }
 
     }
 
@@ -31,6 +33,12 @@ namespace Week9Lab.Models
         }
 
         public virtual DbSet<Post> Posts { get; set; }
+
+        //users who are follwing me are my followers
+        public virtual DbSet<Follower> Followers { get; set; }
+
+        //users who I am following, I am their followee. I am a followee of multiple users
+        public virtual DbSet<Followee> Followees { get; set; }
 
         public static ApplicationDbContext Create()
         {
