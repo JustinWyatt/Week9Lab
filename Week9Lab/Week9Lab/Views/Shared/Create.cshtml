@@ -4,39 +4,27 @@
     ViewBag.Title = "Create";
 }
 
-<style>
-    .form-group{
-        @*Move button to float right of text area*@
-    }
 
-    .form-horizontal{
-        @*Move text area to float left of button. *@
-        @* Size text area appropirately *@
-
-    }
-
-</style>
 
 @*@form posts to posts/create because this is where the view lives*@
-@using (Html.BeginForm("Create", "Posts")) 
+@using (Html.BeginForm("Create", "Posts"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Post</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @*@Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control", value = "Whats on your mind?"} })
+                @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control", value = "Whats on your mind?" } })
                 @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default"/>
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -46,5 +34,5 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    
+
 }

@@ -17,12 +17,12 @@ namespace Week9Lab.Controllers
         public ActionResult Create(string text)
         {
             var currentUserId = User.Identity.GetUserId();
+            
             var post = new Post()
             {
                 DatePosted = DateTime.Now,
                 User = db.Users.Find(currentUserId),
-                Text = text            
-               
+                Text = text                          
             };
 
             db.Posts.Add(post);

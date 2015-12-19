@@ -252,7 +252,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Create.cshtml" />
     <Content Include="Views\Twitter\Start.cshtml" />
-    <Content Include="Views\Twitter\GetAllUsers.cshtml" />
+    <Content Include="Views\Shared\GetAllUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
