@@ -17,7 +17,7 @@ namespace Week9Lab.Models
             // Add custom user claims here
             return userIdentity;
         }
-
+            
         public virtual ICollection<Follower> Followers { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
         //people who I am following
@@ -37,7 +37,7 @@ namespace Week9Lab.Models
         public virtual DbSet<Follower> Followers { get; set; }
         //users who I am following, I am their followee. I am a followee of multiple users
         public virtual DbSet<Followee> Followees { get; set; }
-
+        
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

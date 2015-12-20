@@ -1,10 +1,14 @@
-﻿@model IEnumerable<Week9Lab.Models.AllUsersVM>
+﻿@model List<Week9Lab.Models.AllUsersVM>
 
 <ul>
     @foreach (var item in Model)
     {
+
         <li>
             @Html.ActionLink(item.Name, "Start", "Twitter", new { userid = item.Id }, null)
+            <div class="follow">
+                <p data-id="@item.Id">Follow</p>
+            </div>
         </li>
     }
 </ul>

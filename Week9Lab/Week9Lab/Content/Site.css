@@ -17,9 +17,17 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
+
+.post-text-box{
+        height: 100px;
+        width: 600px;
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
