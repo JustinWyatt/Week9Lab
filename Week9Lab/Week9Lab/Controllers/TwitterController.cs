@@ -28,7 +28,7 @@ namespace Week9Lab.Controllers
             //Get current user posts
             var myPosts = currentUser.Posts
                     .Select(x => new TweetVM() { AuthorId = x.User.Id, Created = x.DatePosted, AuthorName = x.User.UserName, Text = x.Text }).ToList();
-            var followerPosts = currentUser.Followees.SelectMany(x => x.User.Posts)
+            var followeePosts = currentUser.Followees.SelectMany(x => x.User.Posts)
                     .Select(x => new TweetVM() { AuthorId = x.User.Id, Created = x.DatePosted, AuthorName = x.User.UserName, Text = x.Text }).ToList();
 
             //db.Posts.Where(x => x.User.Followers.Any(u => u.User.Id == currentUserID));
@@ -36,7 +36,7 @@ namespace Week9Lab.Controllers
             model.AddRange(myPosts);
 
             //User is a followee of multiple users. Get all who he follows
-            model.AddRange(followerPosts);
+            model.AddRange(followeePosts);
 
             ////Loop through list of followers
             //foreach (var PeopleWhoUserFollows in listOfUserFollowees)
@@ -91,8 +91,10 @@ namespace Week9Lab.Controllers
         {
             var user = db.Users.ToList();
             var a = db.Users.ToList().Select(x => new AllUsersVM { Name = x.UserName, Id = x.Id }).ToList();
+            
             return PartialView(db.Users.ToList().Select(x => new AllUsersVM { Name = x.UserName, Id = x.Id }).ToList());
         }
+        
         
     }
 }

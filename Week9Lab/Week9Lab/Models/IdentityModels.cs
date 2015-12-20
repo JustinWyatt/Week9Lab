@@ -23,6 +23,7 @@ namespace Week9Lab.Models
         //people who I am following
         public virtual ICollection<Followee> Followees { get; set; }
 
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

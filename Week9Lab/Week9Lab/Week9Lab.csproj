@@ -176,6 +176,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Migrations\201512201816204_UpdatedFolloweesForUsers.cs" />
+    <Compile Include="Migrations\201512201816204_UpdatedFolloweesForUsers.Designer.cs">
+      <DependentUpon>201512201816204_UpdatedFolloweesForUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512201821056_DroppedUsersFollowee.cs" />
+    <Compile Include="Migrations\201512201821056_DroppedUsersFollowee.Designer.cs">
+      <DependentUpon>201512201821056_DroppedUsersFollowee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512201840176_UpdatedFollowerTable.cs" />
+    <Compile Include="Migrations\201512201840176_UpdatedFollowerTable.Designer.cs">
+      <DependentUpon>201512201840176_UpdatedFollowerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512201845415_ReturnedFollowerToOriginal.cs" />
+    <Compile Include="Migrations\201512201845415_ReturnedFollowerToOriginal.Designer.cs">
+      <DependentUpon>201512201845415_ReturnedFollowerToOriginal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AllUsersVM.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
@@ -283,6 +299,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512181648285_AddedPostsAndFollowers.resx">
       <DependentUpon>201512181648285_AddedPostsAndFollowers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512201816204_UpdatedFolloweesForUsers.resx">
+      <DependentUpon>201512201816204_UpdatedFolloweesForUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512201821056_DroppedUsersFollowee.resx">
+      <DependentUpon>201512201821056_DroppedUsersFollowee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512201840176_UpdatedFollowerTable.resx">
+      <DependentUpon>201512201840176_UpdatedFollowerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512201845415_ReturnedFollowerToOriginal.resx">
+      <DependentUpon>201512201845415_ReturnedFollowerToOriginal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

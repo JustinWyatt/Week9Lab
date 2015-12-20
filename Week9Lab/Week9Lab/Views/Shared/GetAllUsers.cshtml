@@ -13,3 +13,22 @@
     }
 </ul>
 
+@section scripts{
+    <script>
+        $('.follow').click('.unfollow', function () {
+            $.ajax({
+                method: "POST",
+                url: "@Url.Action("Follow", "Twitter")",
+                data: { id: $(this).data("id") }
+            })
+
+
+        $('.follow').click('.unfollow', function ()
+        {
+            $.ajax({
+                method: "POST",
+                url: "@Url.Action("Unfollow", "Twitter")",
+                data: { id: $(this).data("id") }
+        })
+    </script>
+}
