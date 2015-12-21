@@ -21,6 +21,8 @@
             <li class="active">@Html.ActionLink("Home", "Start", "Twitter")</li>
             <li>@Html.ActionLink("Register", "Register", "Account")</li>
             <li>@Html.ActionLink("Login", "Login", "Account")</li>
+            <li>@Html.ActionLink("List Of Users", "ListOfUsers", "Twitter")</li>
+
         </ul>
         <div class="container body-content" id="render-body">
             @RenderBody()
@@ -33,12 +35,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-    @section scripts{
-        <script>
-            $('li.nav-tabs').click(function () {
-                $(this).addClass('.active');
-            })
-        </script>
-    }
+    
 </body>
 </html>

@@ -46,43 +46,44 @@ namespace Week9Lab.Controllers
             //    startPage.AddRange(follweePosts);
             //}
 
+
             PagedList<TweetVM> pagedView = new PagedList<TweetVM>(model, page, pageSize);
             return View(pagedView);
             //return View(model);
         }
 
         [HttpPost]
-        public ActionResult Follow(int targetUserId)
+        public ActionResult Follow(int id)
         {
-            var targetUser = db.Users.Find(targetUserId);          
+            var targetUser = db.Users.Find(id);          
 
-            //get current userid
             var currentUserId = User.Identity.GetUserId();
 
-            //get current user's list of people who he follows
-            var currentUserFolloweeList = db.Followees.Where(x => x.User.Id == currentUserId).Select(x=>x.User).ToList();
+            var currentUser = db.Users.Find(currentUserId);
 
-            //get target user who current user wishes to follow        
-            //add target user to list of people who user follows
-            currentUserFolloweeList.Add(targetUser);
+            var currentUsersFollowees = currentUser.Followees.Select(x=>x.User).ToList();
+
+            currentUsersFollowees.Add(targetUser);
+
+            db.SaveChanges();
 
             return RedirectToAction("Start", "Twitter");
         }
 
         [HttpPost]
-        public ActionResult Unfollow(int targetUserId)
+        public ActionResult Unfollow(int id)
         {
-            var targetUser = db.Users.Find(targetUserId);
+            var targetUser = db.Users.Find(id);
 
-            //get current username
             var currentUserId = User.Identity.GetUserId();
 
-            //get current user's list of people who he follows
-            var currentUserFolloweeList = db.Followees.Where(x => x.User.Id == currentUserId).Select(x => x.User).ToList();
+            var currentUser = db.Users.Find(currentUserId);
 
-            //get target user who current user wishes to unfollow        
-            //remove target user from list of people who user follows
-            currentUserFolloweeList.Remove(targetUser);
+            var currentUsersFollowees = currentUser.Followees.Select(x => x.User).ToList();
+
+            currentUsersFollowees.Remove(targetUser);
+
+            db.SaveChanges();
 
             return RedirectToAction("Start", "Twitter");
         }
@@ -90,11 +91,16 @@ namespace Week9Lab.Controllers
         public ActionResult GetAllUsers()
         {
             var user = db.Users.ToList();
-            var a = db.Users.ToList().Select(x => new AllUsersVM { Name = x.UserName, Id = x.Id }).ToList();
+            var listOfUsers = db.Users.ToList().Select(x => new AllUsersVM { Name = x.UserName, Id = x.Id }).ToList();
             
             return PartialView(db.Users.ToList().Select(x => new AllUsersVM { Name = x.UserName, Id = x.Id }).ToList());
         }
         
-        
+        public ActionResult ListOfUsers()
+        {
+            var listOfUsers = db.Users.ToList().Select(x => new AllUsersVM { Name = x.UserName, Id = x.Id }).ToList();
+
+            return View(listOfUsers);
+        }
     }
 }

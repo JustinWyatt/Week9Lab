@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "ListOfUsers";
+}
+
+@model List<Week9Lab.Models.AllUsersVM>
+
+<ul>
+    @foreach (var item in Model)
+    {
+
+        <li>
+            @Html.ActionLink(item.Name, "Start", "Twitter", new { userid = item.Id }, null)
+            <div class="follow-list">
+                <div class="follow" data-id="@item.Id">Follow</div>
+            </div>
+        </li>
+    }
+</ul>
+
+@section scripts{
+    <script>
+        $('.follow').click(function () {
+            $.ajax({
+                method: "POST",
+                url: "@Url.Action("Follow", "Twitter")",
+                data: { id: $(this).data("id") },
+                success: function () {
+                    $(this).html("unfollow");
+                    $(this).removeClass('.follow');
+                    $(this).addClass('.unfollow');
+                }
+            });                    
+        })
+    </script>
+}

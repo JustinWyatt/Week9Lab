@@ -44,5 +44,67 @@ textarea {
     position: absolute;
 
 }
+ #posts {
+        border-radius: 25px;
+        border: 1px solid;
+        border-color: lightgrey;
+        background-color: white;
+        height: 100px;
+        width: 600px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #post-area {
+        height: 100px;
+        width: 600px;
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .btn-default {
+    }
+
+    .form-horizontal {
+        height: 100px;
+        width: 600px;
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .form-control {
+        height: 100px;
+        width: 600px;
+        margin: 0 auto;
+    }
+
+
+    .post-container {
+        height: 100px;
+        width: 600px;
+    }
+
+
+    .date-posted {
+        float: right;
+    }
+
+    #user-info {
+        background-color: white;
+        border-color: lightgrey;
+        
+
+    }
+
+    .post-text {
+        text-align: center;
+    }
+
+    .pagination-container{
+        margin: 0 auto;
+
+    }
 
 
